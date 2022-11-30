@@ -80,8 +80,7 @@ public class TicketServiceImpl implements TicketService {
         if ( ticketTypeRequests == null ) throw new NullPointerException();
 
         if ( ticketTypeRequests.length > 0 && ticketTypeRequests.length <= 20 ) return true;
-
-        return false;
+        else return false;
 
     }
 
@@ -95,7 +94,7 @@ public class TicketServiceImpl implements TicketService {
             if (totalTickets > 20) return false;
         }
 
-        if (totalTickets > 0 && totalTickets <= 20) return true;
+        if ( totalTickets > 0 && totalTickets <= 20 ) return true;
         else return false;
 
     }
@@ -111,7 +110,7 @@ public class TicketServiceImpl implements TicketService {
             else if (t.getTicketType() == TicketTypeRequest.Type.INFANT ) totalInfants += t.getNoOfTickets();
         }
 
-        return totalAdults > 0 && totalInfants <= totalAdults;
+        return ( totalAdults > 0 && totalInfants <= totalAdults );
 
         // An adult ticket must be purchased to purchase a Child or Infant ticket (Business Requirement).
         // Assumes 1 infant per lap. Infants cannot exceed Adults laps to sit on. Infants are not reserved a seat and sit on laps (Business Objective).
